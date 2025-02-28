@@ -27,7 +27,7 @@ if __name__ == '__main__':
         time.sleep(1.0)
 
         # We take off when the commander is created
-        with MotionCommander(scf) as mc:
+        with MotionCommander(scf, 0.04) as mc:
             print('Taking off!')
             time.sleep(1)
 
