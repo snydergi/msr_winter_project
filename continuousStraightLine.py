@@ -1,14 +1,3 @@
-"""
-Example script that allows a user to "push" the Crazyflie 2.x around
-using your hands while it's hovering.
-
-This examples uses the Flow and Multi-ranger decks to measure distances
-in all directions and tries to keep away from anything that comes closer
-than 0.2m by setting a velocity in the opposite direction.
-
-The demo is ended by either pressing Ctrl-C or by holding your hand above the
-Crazyflie.
-"""
 import logging
 import sys
 import time
