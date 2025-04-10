@@ -28,6 +28,16 @@ def is_close(range):
         return range < MIN_DISTANCE
 
 
+def is_far(range):
+    MAX_DISTANCE = 0.5  # m
+
+    if range is None:
+        print('Range is None')
+        return False
+    else:
+        return range > MAX_DISTANCE
+
+
 if __name__ == '__main__':
     # Initialize the low-level drivers (don't list the debug drivers)
     cflib.crtp.init_drivers(enable_debug_driver=False)
@@ -41,30 +51,24 @@ if __name__ == '__main__':
         scf.cf.platform.send_arming_request(True)
         time.sleep(1.0)
 
-        with MotionCommander(scf, 0.1) as motion_commander:
+        with MotionCommander(scf, 0.04) as motion_commander:
             with Multiranger(scf) as multi_ranger:
                 keep_flying = True
 
                 while keep_flying:
-                    VELOCITY = 0.5
-                    velocity_x = 0.0
+                    velocity_x = 0.5
                     velocity_y = 0.0
                     velocity_z = 0.0
 
-                    if is_close(multi_ranger.up):
-                        keep_flying = False
+                    # if is_close(multi_ranger.up):
+                    #     keep_flying = False
 
-                    if is_close(multi_ranger.left):
-                        print('Left Close.')
-
-                    if is_close(multi_ranger.right):
-                        print('Right Close.')
+                    # if is_far(multi_ranger.down):
+                    #     velocity_z = 1.0
 
                     if is_close(multi_ranger.front):
-                        print('Front Close.')
-
-                    if is_close(multi_ranger.back):
-                        print('Back Close.')
+                        # velocity_z = 0.5
+                        motion_commander.up(0.01)
 
                     motion_commander.start_linear_motion(
                         velocity_x, velocity_y, velocity_z)
