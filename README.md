@@ -23,7 +23,9 @@ To read more about this project, check it out on my portfolio [here](https://sny
 
 ## Startup
 The general startup can be found [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/)
+
 A helpful page for getting started writing autonomous programs can be found [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-stem-drone-bundle/#)
+
 Follow [this](https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/building-and-flashing/build/#build-python-bindings) tutorial for building and flashing firmware to the Crazyflie.
 
 To begin the startup process, activate the Python `venv` where the Crazyflie software packages were installed. 
